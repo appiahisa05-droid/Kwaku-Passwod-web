@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>MR PRESIDENT DARIES — Animated</title>
+  <style>
+    :root{
+      --bg-1: #0f172a;
+      --bg-2: #071431;
+      --accent1: #ff6b6b;
+      --accent2: #ffd166;
+      --accent3: #6be4c9;
+      --accent4: #8a7bff;
+      --text-size: clamp(36px, 9vw, 120px);
+    }
+
+    html,body{height:100%;margin:0;font-family:Inter,ui-sans-serif,system-ui}
+    body{
+      display:grid;place-items:center;
+      background: radial-gradient(1200px 600px at 10% 20%, rgba(138,123,255,0.12), transparent 10%),
+                  radial-gradient(900px 500px at 90% 80%, rgba(107,228,201,0.08), transparent 10%),
+                  linear-gradient(180deg,var(--bg-1), var(--bg-2));
+      overflow:hidden;color:white;
+    }
+
+    .stage{width:min(1100px,92vw);text-align:center;padding:48px;position:relative;}
+
+    .logo{
+      font-weight:900;
+      font-size:var(--text-size);
+      letter-spacing: -0.02em;
+      line-height:0.9;
+      margin:0;
+      display:inline-block;
+      position:relative;
+      z-index:2;
+    }
+
+    .logo .gradient {
+      background: linear-gradient(90deg, var(--accent1), var(--accent2), var(--accent3), var(--accent4));
+      background-size: 300% 300%;
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      animation: hueShift 6s linear infinite;
+    }
+
+    @keyframes hueShift{
+      0%{background-position:0% 50%}
+      50%{background-position:100% 50%}
+      100%{background-position:0% 50%}
+    }
+
+    /* Globe orbit effect */
+    .orbit{
+      position:absolute;
+      top:50%;left:50%;
+      width:320px;height:320px;
+      margin-left:-160px;margin-top:-160px;
+      border:1.6px dashed rgba(255,255,255,0.15);
+      border-radius:50%;
+      animation: spinOrbit 12s linear infinite;
+    }
+    .globe{
+      position:absolute;
+      top:50%;left:0;
+      width:34px;height:34px;
+      background: radial-gradient(circle at 30% 30%, var(--accent3), var(--accent4));
+      border-radius:50%;
+      transform:translate(-50%,-50%);
+      box-shadow:0 0 16px rgba(138,123,255,0.6);
+    }
+    @keyframes spinOrbit{
+      0%{transform:rotate(0deg)}
+      100%{transform:rotate(360deg)}
+    }
+
+    .underline{height:6px;width:80%;margin:18px auto 0;border-radius:999px;overflow:hidden;}
+    .underline .pulse{height:100%;width:40%;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.08),transparent);animation: slide 3s infinite;}
+    @keyframes slide{to{transform:translateX(300%)}}
+
+  </style>
+</head>
+<body>
+  <main class="stage">
+    <div class="orbit"><div class="globe"></div></div>
+    <h1 class="logo"><span class="gradient">MR PRESIDENT DARIES</span></h1>
+    <div class="underline"><div class="pulse"></div></div>
+    <div class="underline" aria-hidden="true"><div class="pulse"></div></div>
+    <p class="sub">Power. Protection. Progress.</p>
+
+    <div class="sparkles" aria-hidden="true">
+      <div class="spark s1"></div>
+      <div class="spark s2"></div>
+      <div class="spark s3"></div>
+      <div class="spark s4"></div>
+    </div>
+  </main>
+</body>
+</html>
